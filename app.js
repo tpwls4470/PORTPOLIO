@@ -8,7 +8,7 @@ if (new URLSearchParams(window.location.search).has('capture')) {
 
 
 // Replace these two fields when the real name and contact address are ready.
-const profile = { name: 'YOUR NAME', email: '' };
+const profile = { name: '박세진', email: '' };
 const stories = {
   content: {
     eyebrow: 'DAILY CONTENT / PERSONAL EXPERIMENT', title: '꾸준한 실험이 쌓여, 경험이 되다.', image: 'assets/content.svg', alt: '개인 콘텐츠를 표현하는 임시 썸네일',
@@ -169,6 +169,7 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
 document.querySelectorAll('main>section').forEach(section => sectionObserver.observe(section));
 document.querySelector('#year').textContent = String(new Date().getFullYear());
+
 
 
 
