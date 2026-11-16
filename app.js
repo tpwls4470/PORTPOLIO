@@ -16,8 +16,8 @@ const stories = {
     notice: '조회수는 사용자가 제공한 개별 영상의 성과입니다. 썸네일은 임시 이미지이며, 플랫폼별 증빙 화면과 구체적인 변경 사례는 추후 추가할 예정입니다.',
     chapters: [
       ['01 / 시작한 이유', '마케팅을 책이나 강의로만 이해하는 대신, 직접 콘텐츠를 만들어 사람들의 반응을 경험하고 싶었습니다. 하루에 영상 하나를 완성하고 업로드하는 일을 꾸준히 이어가고 있습니다.'],
-      ['02 / 나의 역할과 기간', '개인 콘텐츠 기획·제작·업로드와 사용자 반응 관찰. 3주 이상 운영 중이며, 정확한 시작일과 제작 도구는 실제 정보로 보완할 예정입니다.'],
-      ['03 / 지금까지 확인한 변화', '초기에는 약 100회에 머물던 영상들이 있었고, 꾸준히 운영한 뒤에는 27만 회까지 도달한 영상도 나왔습니다. 이 수치는 전체 영상의 평균이나 동일 영상의 시간별 성장을 뜻하지 않습니다.'],
+      ['02 / 나의 역할과 기간', '개인 콘텐츠 기획·제작·업로드와 사용자 반응 관찰. 3주 차까지 운영하며, 정확한 시작일과 제작 도구는 실제 정보로 보완할 예정입니다.'],
+      ['03 / 지금까지 확인한 변화', '첫 주에는 조회수가 약 1천 회 내외였고, 3주 차에는 53만 회에 도달한 영상이 나왔습니다. 이 수치는 전체 영상의 평균이나 동일 영상의 시간별 성장을 뜻하지 않습니다.'],
       ['04 / 관찰에서 다음 시도로', '어떤 내용을 좋아하는지, 무엇에 흥미를 보이는지 살펴보며 다음 콘텐츠를 만들어가고 있습니다. 실제로 바꾼 주제·도입부·편집 방식과 그 반응은 사례를 받아 구체화할 예정입니다.'],
       ['05 / 디자인으로 이어지는 배움', '내가 전달하고 싶은 내용만큼, 상대방이 어떻게 받아들이는지도 중요하다는 것을 배우고 있습니다. 사용자의 관심과 행동을 관찰하고 더 나은 경험을 만드는 태도로 이어가고 싶습니다.']
     ]
@@ -105,7 +105,11 @@ function openStory(key, trigger) {
   dialog.querySelector('.dialog-close').focus();
 }
 document.querySelectorAll('[data-project]').forEach(trigger => {
-  trigger.addEventListener('click', () => openStory(trigger.dataset.project, trigger));
+  trigger.addEventListener('click', () => {
+    const open = () => openStory(trigger.dataset.project, trigger);
+    if (window.waterEffects) window.waterEffects.openProject(trigger, open);
+    else open();
+  });
 });
 dialog.addEventListener('close', () => {
   document.body.classList.remove('dialog-open');
@@ -165,5 +169,6 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
 document.querySelectorAll('main>section').forEach(section => sectionObserver.observe(section));
 document.querySelector('#year').textContent = String(new Date().getFullYear());
+
 
 

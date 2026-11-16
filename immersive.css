@@ -1,0 +1,45 @@
+/* V03 — glass, refraction, rising foam, and a sideways underwater gallery. */
+.hero{height:215svh;min-height:0;overflow:visible;isolation:auto}
+.hero-stage{position:sticky;top:0;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:#cceaf3;--dive:0;--copy-alpha:1}
+.hero-water{background-image:url('assets/water-reference.png');background-position:center;background-size:cover;mask-image:none;-webkit-mask-image:none;transform:scale(calc(1 + var(--dive)*.52));transform-origin:50% 48%;will-change:transform}
+.hero-haze{background:radial-gradient(ellipse at 50% 48%,rgba(231,248,253,.09),transparent 60%);opacity:calc(1 - var(--dive)*.7)}
+.hero-copy{width:69%;top:46%;transform:translate(-50%,-38%) scale(calc(1 + var(--dive)*1.45));opacity:var(--copy-alpha);transform-origin:50% 45%;will-change:transform,opacity}
+.glass-title{font-size:0!important;filter:none;background:none;-webkit-text-stroke:0;margin:20px auto 15px;width:100%;line-height:0;color:transparent}
+.glass-title:after{display:none}.glass-title img{width:100%;height:auto;max-height:250px;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(77,148,173,.1))}
+.hero-copy>.eyebrow{color:#527e90;font-size:15px;letter-spacing:6px;font-weight:500}.hero-tagline{color:#486f80;font-size:clamp(21px,1.9vw,34px)}.hero-intro{color:#476f81;font-size:17px}
+.work-bubbles{transform:scale(calc(1 + var(--dive)*.3));transform-origin:50% 50%;opacity:var(--copy-alpha);will-change:transform}
+.bubble-content{left:3.5%;top:15%;--bubble-size:clamp(220px,20vw,340px)}.bubble-app{right:2%;top:34%;--bubble-size:clamp(250px,23vw,390px)}.bubble-web{left:3.5%;bottom:7%;--bubble-size:clamp(250px,24vw,400px)}
+.work-bubble{border:1.4px solid rgba(249,255,255,.95);background:radial-gradient(circle at 27% 18%,#fff 0,rgba(255,255,255,.05) 4%,transparent 16%),radial-gradient(circle at 72% 70%,rgba(221,252,255,.05) 40%,rgba(235,251,255,.18) 61%,rgba(249,255,255,.92) 68%,rgba(118,178,201,.2) 71%,rgba(255,255,255,.95) 73%,transparent 77%),radial-gradient(circle at 45% 40%,rgba(207,235,248,.08) 55%,rgba(206,242,250,.4) 70%,rgba(255,255,255,.9) 76%);box-shadow:inset 8px 7px 16px rgba(255,255,255,.9),inset -8px -8px 15px rgba(61,128,160,.2),inset 2px -2px 3px #fff,0 8px 34px rgba(71,129,155,.08);backdrop-filter:blur(1px)}
+.work-bubble:before{inset:5%;border-top:6px solid rgba(255,255,255,.9);border-left:3px solid rgba(255,255,255,.5);border-right:1px solid rgba(160,231,244,.5);transform:rotate(-35deg)}
+.work-bubble:after{inset:2%;background:conic-gradient(from 25deg,transparent 5%,rgba(253,233,250,.6) 10%,transparent 17%,rgba(174,245,251,.5) 29%,transparent 39%,rgba(255,244,209,.6) 52%,transparent 60%,rgba(233,231,255,.7) 76%,transparent 88%);mask-image:radial-gradient(circle,transparent 61%,#000 67%,#000 72%,transparent 75%);-webkit-mask-image:radial-gradient(circle,transparent 61%,#000 67%,#000 72%,transparent 75%)}
+.bubble-art{filter:drop-shadow(0 9px 9px rgba(35,96,129,.12))}.bubble-label{color:#416d80}.bubble-caption{color:#426c7e}.hero-foot,.scroll-cue{opacity:var(--copy-alpha)}
+.hero-stage:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.1) 33%,transparent 44%);mix-blend-mode:screen;animation:light-drift 12s ease-in-out infinite alternate}
+@keyframes light-drift{from{transform:translateX(-10%)}to{transform:translateX(12%)}}
+.work-bubble.is-popping{animation:glass-pop .5s ease-out forwards!important;pointer-events:none}
+@keyframes glass-pop{0%{transform:scale(1);opacity:1;filter:brightness(1)}35%{transform:scale(1.16,.9);filter:brightness(1.2);opacity:.95}70%{transform:scale(1.34);opacity:.3}100%{transform:scale(1.45);opacity:0}}
+#water-effects{position:fixed;inset:0;width:100%;height:100%;z-index:45;pointer-events:none}
+.dive-status{position:absolute;right:4%;bottom:110px;z-index:4;font-size:10px;letter-spacing:2px;color:#477284;writing-mode:vertical-rl;opacity:var(--copy-alpha)}
+.journey-note{font-size:11px;letter-spacing:1px;color:#416b7d;margin-top:16px}.gallery-hint{display:none}
+@media(min-width:1100px) and (min-height:780px){
+ .archive-section{height:235svh;min-height:0!important;padding:0!important;overflow:visible}
+ .archive-scene{position:sticky;top:0;height:100svh;min-height:780px;padding:105px max(80px,calc((100vw - 1450px)/2)) 35px;overflow:hidden}
+ .archive-scene .section-heading{margin-bottom:28px;align-items:center}.archive-scene .section-heading h2{font-size:42px;line-height:1.2}.archive-scene .section-heading h2 br{display:none}.archive-scene .section-heading h2 em{margin-left:12px}.archive-scene .section-heading h2{margin-top:12px}
+ .archive-window{overflow:visible}.archive-grid{display:flex;gap:70px;transform:translateX(var(--gallery-x,0px));will-change:transform}
+ .archive-card{flex:0 0 min(48vw,760px);min-width:0}.archive-image{height:clamp(290px,36vh,430px);aspect-ratio:auto;width:100%;border-radius:46px;margin-bottom:20px}.archive-image>img{height:86%;width:60%;max-height:350px}.archive-image.web-image>img{width:75%;max-height:320px}.archive-card h3{font-size:25px}.archive-card>p:last-child{max-width:600px}.archive-image>span{bottom:16px}.gallery-hint{display:flex;gap:20px;align-items:center;margin-top:26px;font-size:11px;letter-spacing:1.2px}.gallery-hint:after{content:'→';font-size:25px}.gallery-hint span{color:#2f6076}
+}
+@media(max-width:1099px){.archive-scene{position:relative}.archive-window{overflow:visible}}
+@media(max-width:760px){.hero{height:175svh}.hero-stage{min-height:780px}.hero-water{background-position:48% center}.hero-copy{width:94%;top:43%;transform:translate(-50%,-38%) scale(calc(1 + var(--dive)*.9))}.glass-title{margin:17px auto 20px}.glass-title img{width:100%;max-height:none}.hero-copy>.eyebrow{font-size:10px;letter-spacing:3px}.hero-tagline{font-size:19px}.hero-intro{font-size:13px}.bubble-content{--bubble-size:150px;left:4%;top:15%}.bubble-app{--bubble-size:165px;right:3%;top:66%}.bubble-web{--bubble-size:145px;left:3%;bottom:15%}.bubble-caption{font-size:7px}.hero-stage .scroll-cue{bottom:7%}.hero-stage .hero-foot{bottom:15px}.dive-status{display:none}.journey-note{font-size:10px}}
+@media(max-width:360px){.bubble-content{--bubble-size:130px}.bubble-app{--bubble-size:145px}.bubble-web{--bubble-size:130px}.hero-tagline{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.hero{height:100svh;min-height:780px}.hero-stage{position:relative;min-height:780px}.hero-copy{opacity:1;transform:translate(-50%,-38%)}.hero-water,.work-bubbles{transform:none;opacity:1}#water-effects{display:none}.archive-section{height:auto!important}.archive-scene{position:relative!important;height:auto!important}.archive-grid{transform:none!important;display:grid!important;grid-template-columns:repeat(3,1fr);gap:26px}.archive-card{min-width:0}.gallery-hint{display:none}}
+body.capture-mode .hero{height:100svh;min-height:0}body.capture-mode .hero-stage{position:relative;height:100svh;min-height:0}body.capture-mode .hero-copy{opacity:1;transform:translate(-50%,-38%)}body.capture-mode .hero-water,body.capture-mode .work-bubbles{transform:none;opacity:1}body.capture-mode #water-effects{display:none}body.capture-mode .archive-section{height:auto!important;min-height:1080px!important}body.capture-mode .archive-scene{position:relative;height:auto;min-height:1080px}body.capture-mode .archive-grid{transform:none;display:grid;grid-template-columns:repeat(3,1fr);gap:38px}body.capture-mode .archive-card{min-width:0}body.capture-mode .archive-image{height:430px;border-radius:46% 46% 42% 42%}body.capture-mode .gallery-hint{display:none}
+@media(max-width:760px){body.capture-mode .hero,body.capture-mode .hero-stage{height:900px}body.capture-mode .archive-section,body.capture-mode .archive-scene{min-height:0!important}body.capture-mode .archive-grid{grid-template-columns:1fr;gap:46px}body.capture-mode .archive-image{height:auto;aspect-ratio:1/1.05}body.capture-mode .archive-image>img{height:68%}}
+
+.glass-title img{max-height:none;width:100%;height:auto}
+
+/* Crop the transparent padding of the glass word without flattening the lettering. */
+.glass-title{height:clamp(78px,14vw,270px);position:relative;overflow:visible}
+.glass-title img{position:absolute;left:0;top:50%;transform:translateY(-50%);max-height:none;width:100%;height:auto}
+
+/* Menu links jump directly; wheel scrolling drives the cinematic effects. */
+html{scroll-behavior:auto}
+
