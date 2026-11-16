@@ -1,5 +1,12 @@
 'use strict';
 
+if (new URLSearchParams(window.location.search).has('capture')) {
+  document.body.classList.add('capture-mode');
+  document.documentElement.classList.add('capture-mode');
+  document.querySelectorAll('img').forEach(image => { image.loading = 'eager'; });
+}
+
+
 // Replace these two fields when the real name and contact address are ready.
 const profile = { name: 'YOUR NAME', email: '' };
 const stories = {
@@ -158,3 +165,5 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
 document.querySelectorAll('main>section').forEach(section => sectionObserver.observe(section));
 document.querySelector('#year').textContent = String(new Date().getFullYear());
+
+
