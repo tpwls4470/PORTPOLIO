@@ -1,0 +1,14 @@
+/* A visible, bubble-free waterline crossing. Air bubbles start after submersion. */
+.hero{height:700svh}.hero-stage{--cross-alpha:0;--sink:0;--meniscus-y:110%;--lens-alpha:0;--dive-travel:0px}
+.hero .hero-water{z-index:0;transform:perspective(1500px) translate3d(0,calc((1 - var(--pitch))*34%),0) rotateX(calc((1 - var(--pitch))*72deg)) scale(calc(1.44 - var(--pitch)*.38))}
+.hero .hero-haze{z-index:1;pointer-events:none}.surface-world{z-index:2;transform:translate3d(0,calc(var(--approach)*-4%),calc(var(--approach)*360px)) scale(calc(1 + var(--approach)*1.8));transform-origin:50% 62%}
+.hero .hero-copy{z-index:3;transform:translate(-50%,-38%) translate3d(var(--float-x),var(--float-y),calc(var(--approach)*320px)) rotateZ(var(--float-roll)) scale(calc(1 + var(--approach)*1.8))}
+.immersion-window{position:absolute;inset:0;z-index:4;overflow:hidden;pointer-events:none;opacity:var(--cross-alpha);will-change:opacity;perspective:1400px}
+.crossing-view{position:absolute;inset:-50% -6%;background:#a5dbe7 url('assets/waterline-v6.png') center/100% 100% no-repeat;transform:translate3d(calc(var(--float-x)*.35),calc((.5 - var(--sink))*70%),calc(var(--sink)*65px)) scale(1.03);transform-origin:50% 40%;filter:saturate(.9);will-change:transform}
+.lens-water{position:absolute;inset:-8%;background:linear-gradient(172deg,rgba(220,252,255,.08),rgba(130,218,236,.18));opacity:var(--lens-alpha);backdrop-filter:blur(1.5px);transform:scale(calc(1 + var(--sink)*.03));pointer-events:none}
+.meniscus{position:absolute;left:-10%;right:-10%;top:var(--meniscus-y);height:20px;border-radius:50%;background:linear-gradient(transparent,rgba(235,255,255,.66) 38%,rgba(77,157,186,.32) 57%,transparent);box-shadow:0 -9px 24px rgba(233,254,255,.22),0 8px 18px rgba(76,164,195,.11);transform:rotate(calc(var(--float-roll)*.3));filter:blur(2px);opacity:.55}
+.hero .waterline{display:none}.hero .submerged-copy{z-index:5}.hero .work-bubbles{z-index:6}.hero .scroll-cue,.hero .hero-foot,.hero .dive-status{z-index:9}
+.hero .ambient-bubbles{display:none}.hero-stage:after{z-index:1}.surface-shimmer{opacity:.12}.hero .hero-foot{background:transparent}
+body.capture-mode .immersion-window{opacity:0}body.capture-mode[data-capture-scene="crossing"] .immersion-window{opacity:1;--sink:.36;--meniscus-y:50%;--lens-alpha:.2}body.capture-mode[data-capture-scene="crossing"] .surface-world,body.capture-mode[data-capture-scene="crossing"] .hero .hero-copy,body.capture-mode[data-capture-scene="crossing"] .hero .work-bubbles,body.capture-mode[data-capture-scene="crossing"] .submerged-copy{opacity:0}
+@media(max-width:760px){.hero{height:600svh}.crossing-view{inset:-50% -35%;background-size:100% 100%}.meniscus{height:14px}.hero .scroll-cue{bottom:95px}}
+@media(prefers-reduced-motion:reduce){.hero{height:100svh;min-height:900px}.immersion-window{display:none}.hero .hero-copy{transform:translate(-50%,-38%)}.surface-world{transform:none}}

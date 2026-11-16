@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="immersive.css?v=4">
   <link rel="stylesheet" href="refinement.css?v=4">
   <script src="app.js?v=4" defer></script>
-  <script src="immersive-v4.js?v=4" defer></script>
+  <link rel="stylesheet" href="dive-v5.css?v=5">
+  <link rel="stylesheet" href="immersion-v6.css?v=6">
+  <script src="immersive-v6.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#growth">본문으로 바로 가기</a>
@@ -28,10 +30,13 @@
   </header>
   <div class="ocean-guide" aria-hidden="true"><span>DIVE DEEPER</span><i></i><i></i><i></i></div>
   <main>
+    <svg class="surface-filter" aria-hidden="true"><defs><filter id="water-flow" x="-10%" y="-15%" width="120%" height="130%"><feTurbulence type="fractalNoise" baseFrequency=".009 .017" numOctaves="2" seed="8" result="wave"><animate attributeName="baseFrequency" values=".009 .017;.012 .014;.009 .017" dur="12s" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="wave" scale="10" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>
     <section class="hero" id="home" aria-labelledby="hero-title"><div class="hero-stage">
+      <div class="surface-world" aria-hidden="true"><div class="surface-texture"></div><div class="surface-shimmer"></div></div><div class="immersion-window" aria-hidden="true"><div class="crossing-view"></div><div class="lens-water"></div><div class="meniscus"></div></div><div class="waterline" aria-hidden="true"></div>
       <div class="hero-water" aria-hidden="true"></div><div class="hero-haze" aria-hidden="true"></div>
       <div class="ambient-bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div class="hero-copy"><p class="eyebrow">DIVE INTO MY WORK</p><h1 id="hero-title" aria-label="PORTFOLIO" class="glass-title" data-text="PORTFOLIO"><span class="sr-only">PORTFOLIO</span><img src="assets/waterglass-title.png" alt="" width="1536" height="400" fetchpriority="high"></h1><p class="hero-tagline">관심을 따라 관찰하고, <span>경험을 만들어갑니다.</span></p><p class="hero-intro">디자이너 박세진</p></div>
+      <div class="submerged-copy"><p class="eyebrow">BELOW THE SURFACE</p><h2>작은 시도가 모여,<br>더 깊은 경험으로.</h2><p>떠오르는 물방울을 눌러<br>작업의 이야기를 들여다보세요.</p></div>
       <div class="work-bubbles" aria-label="떠오르는 대표 작업">
         <button class="work-bubble bubble-content" type="button" data-project="content" aria-label="꾸준한 실험 프로젝트 상세 보기"><span class="bubble-inner"><span class="bubble-art"><img src="assets/content.svg" alt="" width="200" height="260"></span><span class="bubble-label">꾸준한 실험 <span aria-hidden="true">↗</span></span><span class="bubble-caption">DAILY CONTENT</span></span></button>
         <button class="work-bubble bubble-app" type="button" data-project="app" aria-label="앱 프로젝트 예시 상세 보기"><span class="bubble-inner"><span class="bubble-art"><img src="assets/app.svg" alt="" width="200" height="260"></span><span class="bubble-label">앱 프로젝트 <span aria-hidden="true">↗</span></span><span class="bubble-caption">APP EXPERIENCE · 예시</span></span></button>
