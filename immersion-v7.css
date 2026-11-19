@@ -1,7 +1,7 @@
-/* One continuous water-level camera, from open sea to below the surface. */
+/* An overhead ocean opens the journey before the camera enters the surface. */
 .hero{height:460svh;max-height:none}
 .hero-stage{min-height:0;background:#07586d;--title-alpha:1;--camera-pitch:0}
-.ocean-scene{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;background:#07586d url('assets/ocean-crossing-v7.png') center top/cover no-repeat}
+.ocean-scene{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;background:#07586d url('assets/ocean-overhead-v8.png') center/cover no-repeat}
 .surface-world,.immersion-window,.hero .waterline{display:none}
 .hero .hero-water{opacity:var(--under-alpha);transform:none}
 .hero .hero-copy{z-index:3;top:44%;width:76%;opacity:var(--title-alpha);transform:translate(-50%,-38%) translate3d(var(--float-x),calc(var(--float-y) - var(--approach)*95px),0) rotateX(calc(var(--camera-pitch)*-16deg)) scale(calc(1 + var(--approach)*.35));filter:blur(calc(var(--camera-pitch)*3px))}

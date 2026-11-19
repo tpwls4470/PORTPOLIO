@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-const out=path.resolve('design-exports/v07');
+const out=path.resolve('design-exports/v08');
 await mkdir(out,{recursive:true});
 const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless=new','--no-sandbox','--disable-gpu-sandbox','--enable-unsafe-swiftshader','--remote-debugging-port=9225',`--user-data-dir=${path.resolve('.browser-verify')}`,'about:blank'],{windowsHide:true,stdio:'ignore'});
 let ws;
