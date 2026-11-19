@@ -5,3 +5,6 @@ Thumbs.db
 .env
 .env.*
 artifacts/
+.browser-verify/
+.pt-images/
+design-exports/
