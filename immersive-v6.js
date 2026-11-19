@@ -15,8 +15,8 @@
  function update(){
   pending=false;const run=enabled();dive=capture&&scene==='underwater'?.9:capture&&scene==='crossing'?.33:Math.max(0,-hero.getBoundingClientRect().top/Math.max(1,hero.offsetHeight-h));
   window.oceanScene?.update(dive);
-  stage.style.setProperty('--title-alpha',(1-smooth(.08,.29,dive)).toFixed(4));stage.style.setProperty('--camera-pitch',smooth(.06,.36,dive).toFixed(4));
-  const approach=smooth(.02,.29,dive),pitch=smooth(.53,.66,dive),surface=1-smooth(.23,.34,dive),under=smooth(.51,.65,dive),reveal=smooth(.73,.84,dive),submerged=smooth(.74,.84,dive),line=0,sink=smooth(.28,.55,dive),cross=smooth(.23,.34,dive)*(1-smooth(.55,.67,dive));
+  stage.style.setProperty('--title-alpha',(1-smooth(.24,.47,dive)).toFixed(4));stage.style.setProperty('--camera-pitch',smooth(.12,.58,dive).toFixed(4));
+  const approach=smooth(.04,.46,dive),pitch=smooth(.58,.72,dive),surface=1-smooth(.42,.55,dive),under=smooth(.56,.70,dive),reveal=smooth(.76,.87,dive),submerged=smooth(.77,.87,dive),line=0,sink=smooth(.34,.68,dive),cross=smooth(.39,.55,dive)*(1-smooth(.60,.72,dive));
   stage.style.setProperty('--cross-alpha',cross.toFixed(4));stage.style.setProperty('--sink',sink.toFixed(4));stage.style.setProperty('--meniscus-y',`${(100-sink*140).toFixed(2)}%`);stage.style.setProperty('--lens-alpha',(smooth(.35,.56,dive)*.55).toFixed(3));
   stage.style.setProperty('--dive','0');stage.style.setProperty('--copy-alpha','1');stage.style.setProperty('--approach',approach.toFixed(4));stage.style.setProperty('--pitch',pitch.toFixed(4));stage.style.setProperty('--surface-alpha',surface.toFixed(4));stage.style.setProperty('--under-alpha',under.toFixed(4));stage.style.setProperty('--waterline',line.toFixed(4));stage.style.setProperty('--submerged-alpha',submerged.toFixed(4));stage.style.setProperty('--project-alpha',reveal.toFixed(4));stage.style.setProperty('--project-rise',`${((1-reveal)*Math.min(h*1.05,1100)).toFixed(1)}px`);stage.style.setProperty('--bubble-pointer',reveal>.2?'auto':'none');stage.dataset.divePhase=dive<.23?'surface':dive<.55?'crossing':dive<.66?'pitching':dive<.84?'rising':'observe';
   projects.forEach(p=>{p.inert=run&&reveal<.2;});

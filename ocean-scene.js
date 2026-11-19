@@ -15,8 +15,9 @@
     vec3 photo(vec2 p){return texture2D(ocean,vec2(clamp(p.x,.002,.998),1.-clamp(p.y,.002,.998))).rgb;}
     void main(){
       vec2 p=vec2(uv.x,1.-uv.y);
-      float sink=ease(.10,.59,progress);
-      float line=mix(1.10,-.18,sink);
+      float cameraTurn=ease(.12,.58,progress);
+      float sink=ease(.30,.70,progress);
+      float line=mix(1.16,-.18,sink);
       float wave=(sin(p.x*11.+time*.8)*.012+sin(p.x*23.-time*.65)*.005+sin(p.x*5.+time*.4)*.008);
       float edge=line+wave;
       float below=step(edge,p.y);
@@ -29,11 +30,12 @@
       float belowY=.48+.52*(p.y-edge)/max(1.-edge,.15);
       float sy=mix(aboveY,belowY,below);
       sy+=sin(p.x*18.+time*.75)*.002*(.25+p.y)+bend*sin(p.x*36.+time)*.005;
-      vec2 overheadUV=vec2((p.x-.5)*crop+.5,p.y);
+      float overheadZoom=1.+cameraTurn*.46;
+      vec2 overheadUV=vec2((p.x-.5)*crop*overheadZoom+.5,(p.y-.5)*overheadZoom+.5);
       overheadUV+=vec2(sin(p.y*18.+time*.26)*.002,cos(p.x*17.-time*.22)*.002);
       vec3 overheadColor=texture2D(overhead,vec2(overheadUV.x,1.-overheadUV.y)).rgb;
       vec3 waterlineColor=photo(vec2(sx,sy));
-      float leaveOverhead=ease(.09,.31,progress);
+      float leaveOverhead=ease(.22,.60,progress);
       vec3 color=mix(overheadColor,waterlineColor,leaveOverhead);
       float submerge=ease(.56,.79,progress);
       vec2 deepUV=vec2((p.x-.5)*min(1.,aspect/1.5)+.5,p.y);
